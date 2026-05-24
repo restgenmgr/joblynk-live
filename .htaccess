@@ -1,0 +1,26 @@
+>> "@
+PS C:\Users\admin\website>
+PS C:\Users\admin\website> $htaccessPath = "C:\Users\admin\website\public\.htaccess"
+PS C:\Users\admin\website> $htaccessContent | Out-File -FilePath $htaccessPath -Encoding UTF8
+PS C:\Users\admin\website> Write-Host "? .htaccess file created at: $htaccessPath" -ForegroundColor Green
+✅ .htaccess file created at: C:\Users\admin\website\public\.htaccess
+PS C:\Users\admin\website> Write-Host "?? Upload this file to your server's root folder (public_html or htdocs)" -ForegroundColor Yellow$redirectsContent = "/*    /index.html    200"
+📤 Upload this file to your server's root folder (public_html or htdocs) = /*    /index.html    200
+PS C:\Users\admin\website>
+PS C:\Users\admin\website> $redirectsPath = "C:\Users\admin\website\public\_redirects"
+PS C:\Users\admin\website> $redirectsContent | Out-File -FilePath $redirectsPath -Encoding UTF8
+PS C:\Users\admin\website> Write-Host "? _redirects file created at: $redirectsPath" -ForegroundColor Green
+✅ _redirects file created at: C:\Users\admin\website\public\_redirects
+PS C:\Users\admin\website> $nginxConfig = @"
+>> location / {
+>>     try_files $uri $uri/ /index.html;
+>> }
+>> "@
+PS C:\Users\admin\website>
+PS C:\Users\admin\website> $nginxPath = "C:\Users\admin\website\nginx-config.txt"
+PS C:\Users\admin\website> $nginxConfig | Out-File -FilePath $nginxPath -Encoding UTF8
+PS C:\Users\admin\website> Write-Host "? Nginx config saved to: $nginxPath" -ForegroundColor Green
+✅ Nginx config saved to: C:\Users\admin\website\nginx-config.txt
+PS C:\Users\admin\website> Write-Host "Show this to your hosting provider if they use Nginx" -ForegroundColor Yellow
+Show this to your hosting provider if they use Nginx
+PS C:\Users\admin\website>
