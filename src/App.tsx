@@ -24,7 +24,7 @@ function App() {
             <Link to="/" style={{ color: 'white', textDecoration: 'none' }}>HOME</Link>
             <Link to="/about" style={{ color: 'white', textDecoration: 'none' }}>ABOUT</Link>
             <Link to="/blog" style={{ color: 'white', textDecoration: 'none' }}>BLOG</Link>
-            <Link to="/pay" style={{ color: '#fbbf24', textDecoration: 'none', fontWeight: 'bold' }}>PAY PORTAL</Link>
+            <Link to="/pay-portal" style={{ color: '#fbbf24', textDecoration: 'none', fontWeight: 'bold' }}>PAY PORTAL</Link>
           </div>
         </nav>
 
@@ -40,7 +40,7 @@ function App() {
             <Route path="/terms" element={<Terms />} />
             <Route path="/privacy" element={<Privacy />} />
             <Route path="/refund" element={<Refund />} />
-            <Route path="/pay" element={<PayPortal />} />
+            <Route path="/pay-portal" element={<PayPortal />} />
             <Route path="/service/:id" element={<ServicePage />} />
           </Routes>
         </div>
