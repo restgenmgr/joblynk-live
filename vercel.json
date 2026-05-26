@@ -1,0 +1,23 @@
+﻿{
+  "version": 2,
+  "builds": [
+    {
+      "src": "index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "src/**/*.tsx",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "dist" }
+    }
+  ],
+  "routes": [
+    { "handle": "filesystem" },
+    { "src": "/", "dest": "/index.html" },
+    { "src": "/about", "dest": "/about.html" },
+    { "src": "/contact", "dest": "/contact.html" },
+    { "src": "/blog", "dest": "/blog.html" },
+    { "src": "/pay-portal", "dest": "/pay-portal" },
+    { "src": "/(.*)", "dest": "/dist/$1" }
+  ]
+}
