@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Food Safety in the Kitchen | Temperature, Equipment & Hygiene Guide</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --hot: #c0392b;
+    --hot-light: #e74c3c;
+    --cold: #1a6e9e;
+    --cold-light: #2980b9;
+    --safe: #27ae60;
+    --danger: #e67e22;
+    --dark: #1a1a1a;
+    --mid: #2d2d2d;
+    --surface: #f5f0eb;
+    --text: #2c2c2c;
+    --text-light: #666;
+    --border: #ddd5c8;
+    --accent: #8b4513;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--surface);
+    color: var(--text);
+    line-height: 1.75;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--dark);
+    color: #fff;
+    padding: 60px 40px 50px;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 30px,
+      rgba(255,255,255,0.02) 30px,
+      rgba(255,255,255,0.02) 31px
+    );
+  }
+  .header-tag {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    color: var(--danger);
+    display: block;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+  }
+  header h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    line-height: 1;
+    letter-spacing: 0.02em;
+    max-width: 820px;
+    position: relative;
+  }
+  header h1 span { color: var(--hot-light); }
+  .header-sub {
+    margin-top: 18px;
+    font-size: 1.05rem;
+    font-style: italic;
+    color: rgba(255,255,255,0.65);
+    max-width: 600px;
+    font-weight: 300;
+    position: relative;
+  }
+  .site-credit {
+    margin-top: 24px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.3);
+    position: relative;
+  }
+
+  /* LAYOUT */
+  .container {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 60px 24px;
+  }
+
+  /* TOC */
+  .toc {
+    background: var(--dark);
+    color: #fff;
+    padding: 32px 36px;
+    margin-bottom: 60px;
+    border-left: 4px solid var(--danger);
+  }
+  .toc h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.25em;
+    color: var(--danger);
+    margin-bottom: 16px;
+  }
+  .toc ol {
+    padding-left: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 30px;
+  }
+  .toc ol li { font-size: 0.9rem; }
+  .toc a { color: rgba(255,255,255,0.75); text-decoration: none; transition: color 0.2s; }
+  .toc a:hover { color: var(--danger); }
+  @media (max-width: 600px) { .toc ol { grid-template-columns: 1fr; } }
+
+  /* SECTIONS */
+  section { margin-bottom: 70px; scroll-margin-top: 20px; }
+
+  .section-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--text-light);
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.9rem, 4vw, 2.8rem);
+    line-height: 1.05;
+    letter-spacing: 0.02em;
+    color: var(--dark);
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--border);
+    padding-bottom: 12px;
+  }
+
+  h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.25rem;
+    letter-spacing: 0.05em;
+    color: var(--accent);
+    margin: 28px 0 10px;
+  }
+
+  p { margin-bottom: 16px; font-size: 1.02rem; }
+
+  ul, ol {
+    padding-left: 22px;
+    margin-bottom: 16px;
+  }
+  li { margin-bottom: 6px; font-size: 1rem; }
+  li strong { color: var(--dark); }
+
+  /* CALLOUT BOXES */
+  .callout {
+    padding: 20px 24px;
+    margin: 24px 0;
+    border-left: 5px solid;
+    font-size: 0.97rem;
+  }
+  .callout.hot { background: #fdf0ef; border-color: var(--hot); }
+  .callout.cold { background: #eaf4fb; border-color: var(--cold); }
+  .callout.safe { background: #edfaf1; border-color: var(--safe); }
+  .callout.warning { background: #fef9ec; border-color: var(--danger); }
+  .callout strong { display: block; font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.1em; margin-bottom: 6px; }
+  .callout.hot strong { color: var(--hot); }
+  .callout.cold strong { color: var(--cold); }
+  .callout.safe strong { color: var(--safe); }
+  .callout.warning strong { color: var(--danger); }
+
+  /* TEMP ZONE VISUAL */
+  .temp-zone {
+    display: flex;
+    flex-direction: column;
+    border: 2px solid var(--border);
+    overflow: hidden;
+    margin: 30px 0;
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.05em;
+  }
+  .tz-row {
+    display: flex;
+    align-items: center;
+    padding: 14px 20px;
+    gap: 16px;
+    font-size: 1rem;
+  }
+  .tz-row .temp { font-size: 1.4rem; min-width: 80px; }
+  .tz-hot { background: var(--hot); color: #fff; }
+  .tz-safe-hot { background: #e8f5e9; color: var(--safe); border-top: 1px solid #c8e6c9; }
+  .tz-danger { background: #fff3e0; color: #bf360c; border-top: 1px solid #ffe0b2; }
+  .tz-cold { background: #e3f2fd; color: var(--cold); border-top: 1px solid #bbdefb; }
+  .tz-freeze { background: var(--cold); color: #fff; border-top: 1px solid #1565c0; }
+
+  /* CUTTING BOARD COLOR TABLE */
+  .board-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+    gap: 12px;
+    margin: 24px 0;
+  }
+  .board-card {
+    border-radius: 6px;
+    padding: 16px 12px;
+    text-align: center;
+    color: #fff;
+    font-size: 0.85rem;
+  }
+  .board-card .board-color { font-family: 'Bebas Neue', sans-serif; font-size: 1.3rem; letter-spacing: 0.05em; display: block; margin-bottom: 4px; }
+  .bc-red { background: #c0392b; }
+  .bc-blue { background: #1a6e9e; }
+  .bc-yellow { background: #d4a017; }
+  .bc-green { background: #27ae60; }
+  .bc-white { background: #888; }
+  .bc-brown { background: #6d4c41; }
+
+  /* BIN COLORS */
+  .bin-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 14px;
+    margin: 24px 0;
+  }
+  .bin-card {
+    padding: 18px 14px;
+    border-radius: 4px;
+    text-align: center;
+    border: 3px solid;
+    font-size: 0.88rem;
+  }
+  .bin-card .bin-icon { font-size: 2rem; display: block; margin-bottom: 6px; }
+  .bin-card strong { display: block; font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 0.05em; margin-bottom: 4px; }
+  .bin-black { border-color: #222; background: #f9f9f9; }
+  .bin-blue { border-color: var(--cold); background: #eaf4fb; }
+  .bin-green { border-color: var(--safe); background: #edfaf1; }
+  .bin-yellow { border-color: #d4a017; background: #fef9ec; }
+  .bin-red { border-color: var(--hot); background: #fdf0ef; }
+
+  /* RECORD TABLE */
+  .record-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 0.93rem;
+  }
+  .record-table th {
+    background: var(--dark);
+    color: #fff;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.1em;
+    padding: 12px 16px;
+    text-align: left;
+  }
+  .record-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .record-table tr:nth-child(even) td { background: #f0ebe4; }
+
+  /* PROCEDURE STEPS */
+  .steps {
+    counter-reset: step;
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+  }
+  .steps li {
+    counter-increment: step;
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+    align-items: flex-start;
+  }
+  .steps li::before {
+    content: counter(step);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    background: var(--dark);
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 36px 24px;
+    font-size: 0.85rem;
+  }
+  footer a { color: rgba(255,255,255,0.6); }
+
+  /* PRINT */
+  @media print {
+    header, .toc { break-after: avoid; }
+    section { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <span class="header-tag">Kitchen Operations Manual</span>
+  <h1>Food Safety:<br><span>Temperature, Equipment</span><br>&amp; Hygiene Standards</h1>
+  <p class="header-sub">A complete operational guide for food handlers, kitchen supervisors, and catering professionals.</p>
+  <p class="site-credit">nigelthomas.live &mdash; Professional Food Safety Resources</p>
+</header>
+
+<div class="container">
+
+  <!-- TOC -->
+  <nav class="toc" id="top">
+    <h2>Contents</h2>
+    <ol>
+      <li><a href="#danger-zone">Temperature Danger Zone</a></li>
+      <li><a href="#hot-holding">Hot Holding Standards</a></li>
+      <li><a href="#cold-holding">Cold Holding &amp; Refrigeration</a></li>
+      <li><a href="#thermometers">Thermometer Types &amp; Use</a></li>
+      <li><a href="#calibration">Thermometer Calibration</a></li>
+      <li><a href="#dishwash">Dishwashing Temperatures</a></li>
+      <li><a href="#cutting-boards">Colour-Coded Cutting Boards</a></li>
+      <li><a href="#records">Records to Keep</a></li>
+      <li><a href="#ventilation">Air Vents &amp; Chimney Cleaning</a></li>
+      <li><a href="#oil">Used Cooking Oil Disposal</a></li>
+      <li><a href="#waste">Colour-Coded Waste Bins</a></li>
+    </ol>
+  </nav>
+
+  <!-- SECTION 1: DANGER ZONE -->
+  <section id="danger-zone">
+    <span class="section-label">Section 01</span>
+    <h2>The Temperature Danger Zone</h2>
+
+    <p>Temperature is the single most powerful variable in food safety. Bacteria that cause foodborne illness — including <em>Salmonella</em>, <em>E. coli</em>, <em>Listeria</em>, and <em>Staphylococcus aureus</em> — thrive in a specific temperature band. Understanding and controlling this band is the foundation of every safe kitchen.</p>
+
+    <div class="temp-zone">
+      <div class="tz-row tz-hot">
+        <span class="temp">140°F+<br><small style="font-size:0.7em">60°C+</small></span>
+        <span>🔥 HOT SAFE ZONE — Food must be held at or above this temperature. Bacteria are destroyed or cannot multiply at this level. All hot holding equipment must maintain 140°F (60°C) minimum.</span>
+      </div>
+      <div class="tz-row tz-danger">
+        <span class="temp">40–140°F<br><small style="font-size:0.7em">5–60°C</small></span>
+        <span>⚠️ DANGER ZONE — Bacteria double every 20 minutes in this range. Food must NEVER remain in this zone for more than 2 hours total (1 hour if ambient temperature exceeds 90°F/32°C).</span>
+      </div>
+      <div class="tz-row tz-cold">
+        <span class="temp">32–40°F<br><small style="font-size:0.7em">0–5°C</small></span>
+        <span>❄️ REFRIGERATION ZONE — Safe cold holding range. Bacteria growth is significantly slowed. Refrigerators must be set at or below 40°F (5°C). Verify with a calibrated thermometer daily.</span>
+      </div>
+      <div class="tz-row tz-freeze">
+        <span class="temp">-5°F / 0°F<br><small style="font-size:0.7em">-20°C / -18°C</small></span>
+        <span>🧊 FREEZER ZONE — Bacteria do not grow. Standard commercial freezer target is 0°F (-18°C). Some operations require -5°F (-20°C) for specific products. Freezing does not kill bacteria — it suspends them.</span>
+      </div>
+    </div>
+
+    <div class="callout warning">
+      <strong>⚠️ Critical Rule: The 2-Hour Window</strong>
+      Cooked or perishable food that has been in the Danger Zone (40–140°F) for a cumulative total of more than 2 hours must be discarded. This is non-negotiable. Time–temperature logs exist to enforce this rule.
+    </div>
+
+    <p>Note that freezing does not make food permanently safe — it simply stops bacterial multiplication. When food thaws, bacteria resume activity. Always thaw food safely in a refrigerator, under cold running water, or in a microwave (if cooking immediately), never on a countertop at room temperature.</p>
+  </section>
+
+  <!-- SECTION 2: HOT HOLDING -->
+  <section id="hot-holding">
+    <span class="section-label">Section 02</span>
+    <h2>Hot Holding Standards</h2>
+
+    <p>Hot holding refers to keeping cooked food at a safe temperature after cooking and before service. This is not a cooking step — hot holding equipment does not cook food. Food must be fully cooked to its required internal temperature <em>before</em> it is placed in hot holding equipment.</p>
+
+    <div class="callout hot">
+      <strong>🌡️ Minimum Hot Holding Temperature: 140°F (60°C)</strong>
+      All hot held food must register at or above 140°F at its thickest point or centre. Check every 2 hours minimum during service. Document every reading.
+    </div>
+
+    <h3>Required Internal Cooking Temperatures</h3>
+    <ul>
+      <li><strong>Poultry (whole, parts, ground):</strong> 165°F (74°C) for 15 seconds</li>
+      <li><strong>Ground meat (beef, pork, lamb):</strong> 155°F (68°C) for 15 seconds</li>
+      <li><strong>Seafood, whole muscle beef/pork:</strong> 145°F (63°C) for 15 seconds</li>
+      <li><strong>Reheated previously cooked food:</strong> 165°F (74°C) within 2 hours</li>
+      <li><strong>Eggs for immediate service:</strong> 145°F (63°C)</li>
+      <li><strong>Eggs for hot holding:</strong> 155°F (68°C)</li>
+      <li><strong>Vegetables, grains, legumes:</strong> 135°F (57°C)</li>
+    </ul>
+
+    <h3>Cooling Cooked Food Safely</h3>
+    <p>If food is prepared ahead and needs to be cooled before refrigeration, follow the two-stage cooling rule:</p>
+    <ul>
+      <li>Stage 1: Cool from 140°F to 70°F (60°C to 21°C) within <strong>2 hours</strong></li>
+      <li>Stage 2: Cool from 70°F to 40°F (21°C to 5°C) within <strong>4 additional hours</strong></li>
+    </ul>
+    <p>Total maximum cooling time: <strong>6 hours.</strong> Use shallow pans, ice baths, blast chillers, or ice wands to achieve this. Never place large hot containers directly into a refrigerator — this raises the fridge temperature and endangers surrounding food.</p>
+  </section>
+
+  <!-- SECTION 3: COLD HOLDING -->
+  <section id="cold-holding">
+    <span class="section-label">Section 03</span>
+    <h2>Cold Holding &amp; Refrigeration</h2>
+
+    <p>Cold holding keeps perishable food safe during preparation, storage, and service. It relies on a properly functioning refrigeration system, correct food placement, and regular temperature monitoring.</p>
+
+    <div class="callout cold">
+      <strong>❄️ Maximum Cold Holding Temperature: 40°F (5°C)</strong>
+      Refrigeration units must hold food at or below 40°F (5°C) at all times. Freezers must hold at 0°F (-18°C) or below. Check and log temperatures at the start of every shift and every 4 hours during operation.
+    </div>
+
+    <h3>Best Practices for Refrigeration</h3>
+    <ul>
+      <li>Store raw meat on the <strong>lowest shelves</strong>, below ready-to-eat foods — always.</li>
+      <li>Shelf order top-to-bottom: Ready-to-eat food → Seafood → Whole cuts of beef/pork → Ground meat → Poultry</li>
+      <li>Never overload refrigerators — cold air must circulate freely.</li>
+      <li>Keep refrigerator doors closed as much as possible; every open door raises the internal temperature.</li>
+      <li>Date-label everything. Use FIFO (First In, First Out) rotation.</li>
+      <li>Cover all stored food to prevent cross-contamination and moisture loss.</li>
+      <li>Clean refrigerator coils and door seals monthly.</li>
+    </ul>
+
+    <h3>Thawing Rules</h3>
+    <ul>
+      <li>In the refrigerator (safest, most time required)</li>
+      <li>Under cold running water (41°F or below), food submerged and water flowing</li>
+      <li>In the microwave only if cooking immediately afterwards</li>
+      <li>As part of the cooking process for small items</li>
+    </ul>
+    <p><strong>Never thaw food at room temperature on a countertop.</strong> The outer layers enter the Danger Zone while the centre is still frozen.</p>
+  </section>
+
+  <!-- SECTION 4: THERMOMETERS -->
+  <section id="thermometers">
+    <span class="section-label">Section 04</span>
+    <h2>Thermometer Types &amp; Correct Use</h2>
+
+    <p>A thermometer is your most important food safety tool. Every kitchen should have multiple thermometers for different applications. Using the wrong type — or a poorly calibrated one — gives false confidence and creates serious risk.</p>
+
+    <h3>Food Probe Thermometers</h3>
+    <p>Used to check the internal temperature of food during cooking, hot holding, and cooling. The probe is inserted into the thickest part of the food, away from bone, fat, or gristle. Wait for the reading to stabilise (usually 15–30 seconds for bimetal; 2–5 seconds for digital).</p>
+    <ul>
+      <li><strong>Digital instant-read:</strong> Fast, accurate, ideal for thin foods. Clean and sanitise between every use.</li>
+      <li><strong>Bimetal stem thermometer:</strong> The traditional dial type. Accurate but slower. Must be calibrated regularly.</li>
+      <li><strong>Thermocouple:</strong> Most accurate and fastest (1–2 seconds). Preferred for professional kitchens.</li>
+      <li><strong>Infrared (surface) thermometer:</strong> Reads surface temperature only — useful for checking grill and cooking surface temperatures, NOT for verifying internal food temperature.</li>
+    </ul>
+
+    <h3>Refrigerator &amp; Freezer Thermometers</h3>
+    <p>These are placed inside refrigeration units and remain there during operation. They measure air temperature continuously. Place the sensor in the warmest area of the unit (usually near the door or at the top front). Check and log the reading at the start of every shift.</p>
+
+    <h3>Dishwasher Thermometers</h3>
+    <p>Used to verify that dishwashing machines reach and maintain required sanitising temperatures. Some commercial dishwashers have built-in gauges, but these should be verified periodically with an independent probe thermometer placed in the wash/rinse cycle. (See Dishwashing Temperatures section.)</p>
+
+    <div class="callout safe">
+      <strong>✅ Sanitation Rule for Probe Thermometers</strong>
+      Clean (remove physical debris) and sanitise (eliminate pathogens) the probe between every single use — especially when moving between different food types or from raw to cooked food. Use an alcohol wipe or dip in sanitiser solution, then rinse with clean water.
+    </div>
+  </section>
+
+  <!-- SECTION 5: CALIBRATION -->
+  <section id="calibration">
+    <span class="section-label">Section 05</span>
+    <h2>Thermometer Calibration &amp; Cleaning</h2>
+
+    <p>A thermometer that reads incorrectly is worse than no thermometer — it gives false assurance. All food probe thermometers must be calibrated regularly: at minimum once per shift, after a significant drop or impact, and whenever accuracy is in doubt.</p>
+
+    <h3>Ice-Point (Cold) Calibration Method</h3>
+    <ol class="steps">
+      <li>Fill a container with crushed ice and add cold water. Stir well. Allow to equilibrate for 2 minutes.</li>
+      <li>Insert the thermometer probe into the centre of the ice-water mixture, ensuring it does not touch the sides or bottom of the container.</li>
+      <li>Wait for the reading to stabilise (30–60 seconds for bimetal; 5–10 seconds for digital).</li>
+      <li>The thermometer must read <strong>32°F (0°C).</strong> If not, adjust using the calibration nut (bimetal) or the reset button (digital), or remove from service.</li>
+      <li>Record the calibration check: date, time, method, reading, and action taken.</li>
+    </ol>
+
+    <h3>Boiling-Point (Hot) Calibration Method</h3>
+    <ol class="steps">
+      <li>Bring clean water to a rolling boil in a pot.</li>
+      <li>Insert the probe into the centre of the boiling water, not touching the pot.</li>
+      <li>The thermometer must read <strong>212°F (100°C)</strong> at sea level. Adjust for altitude: subtract 1°F for every 550 feet (or 1°C for every 300 metres) above sea level.</li>
+      <li>Adjust or remove from service if reading is outside ±2°F (±1°C).</li>
+      <li>Record the calibration check with full details.</li>
+    </ol>
+
+    <h3>Thermometer Cleaning Procedure</h3>
+    <ol class="steps">
+      <li>Wipe the probe with a clean paper towel to remove food debris.</li>
+      <li>Wash the probe with hot water and detergent, scrubbing all surfaces.</li>
+      <li>Rinse with clean warm water.</li>
+      <li>Sanitise by dipping in approved sanitiser solution (follow manufacturer's concentration guidance) or wiping with a 70% isopropyl alcohol wipe.</li>
+      <li>Air dry. Never dry with a cloth that may recontaminate.</li>
+      <li>Store in a clean, dry protective case or sleeve.</li>
+    </ol>
+
+    <div class="callout warning">
+      <strong>⚠️ Never Immerse the Display Unit</strong>
+      For digital thermometers, only the probe is washable unless the unit is specifically rated as waterproof. Immersing the display unit can damage electronics and give inaccurate readings.
+    </div>
+  </section>
+
+  <!-- SECTION 6: DISHWASHING -->
+  <section id="dishwash">
+    <span class="section-label">Section 06</span>
+    <h2>Dishwashing Temperatures</h2>
+
+    <p>Commercial dishwashing serves two purposes: removing physical soil (cleaning) and eliminating pathogens (sanitising). Temperature is the primary sanitising agent in most commercial machines, although chemical sanitiser rinses are used in lower-temperature systems.</p>
+
+    <h3>High-Temperature Dishwasher Standards</h3>
+    <ul>
+      <li><strong>Wash cycle:</strong> Minimum 150°F (66°C)</li>
+      <li><strong>Final sanitising rinse:</strong> Minimum 180°F (82°C) at the rack level — the surface temperature of the dish must reach at least 160°F (71°C)</li>
+      <li>High-temperature machines rely entirely on heat for pathogen destruction — no chemical sanitiser is used in the rinse</li>
+    </ul>
+
+    <h3>Low-Temperature (Chemical Sanitiser) Machines</h3>
+    <ul>
+      <li><strong>Wash cycle:</strong> Minimum 120°F (49°C)</li>
+      <li><strong>Rinse:</strong> Chemical sanitiser (chlorine or quaternary ammonium) applied at correct concentration and contact time</li>
+      <li>Chemical concentration must be tested with test strips at the start of each shift and after high-volume periods</li>
+    </ul>
+
+    <h3>Manual Three-Compartment Sink</h3>
+    <ol class="steps">
+      <li><strong>Wash:</strong> Hot soapy water, minimum 110°F (43°C). Use a brush or cloth — never a sponge.</li>
+      <li><strong>Rinse:</strong> Clean warm water to remove soap residue.</li>
+      <li><strong>Sanitise:</strong> Chemical sanitiser solution at correct concentration, minimum 30-second contact time. Do not rinse after sanitising.</li>
+      <li><strong>Air dry:</strong> Place items on a clean rack to dry. Never towel-dry — this recontaminates.</li>
+    </ol>
+
+    <div class="callout safe">
+      <strong>✅ Check Before Every Shift</strong>
+      Verify and log wash and rinse temperatures, and chemical sanitiser concentration, at the start of every dishwashing shift. Keep the test strip log beside the machine.
+    </div>
+  </section>
+
+  <!-- SECTION 7: CUTTING BOARDS -->
+  <section id="cutting-boards">
+    <span class="section-label">Section 07</span>
+    <h2>Colour-Coded Cutting Boards</h2>
+
+    <p>Cross-contamination — the transfer of harmful bacteria from one food to another — is one of the leading causes of foodborne illness. Colour-coded cutting boards are the simplest and most effective system for preventing cross-contamination at the preparation stage.</p>
+
+    <div class="board-grid">
+      <div class="board-card bc-red">
+        <span class="board-color">RED</span>
+        Raw Beef &amp; Red Meat
+      </div>
+      <div class="board-card bc-blue">
+        <span class="board-color">BLUE</span>
+        Raw Fish &amp; Seafood
+      </div>
+      <div class="board-card bc-yellow">
+        <span class="board-color">YELLOW</span>
+        Raw Poultry &amp; Chicken
+      </div>
+      <div class="board-card bc-green">
+        <span class="board-color">GREEN</span>
+        Salad, Fruit &amp; Vegetables
+      </div>
+      <div class="board-card bc-white">
+        <span class="board-color">WHITE</span>
+        Dairy, Bread &amp; Bakery
+      </div>
+      <div class="board-card bc-brown">
+        <span class="board-color">BROWN</span>
+        Cooked Meats &amp; Ready-to-Eat
+      </div>
+    </div>
+
+    <h3>Rules for Cutting Board Use</h3>
+    <ul>
+      <li>Never use the same board for a different food category without a full wash, rinse, and sanitise cycle between uses.</li>
+      <li>Replace boards that develop deep cuts, grooves, or staining that cannot be removed — bacteria hide in knife scars and are impossible to fully sanitise.</li>
+      <li>Wash with hot water and detergent, rinse, then sanitise with an approved food-contact sanitiser after each use.</li>
+      <li>Store boards upright in dedicated racks, separated by colour. Never stack boards flat on top of each other.</li>
+      <li>Replace boards at minimum annually or more frequently if surfaces are heavily scored.</li>
+      <li>Train all staff on the colour system at induction and refresh annually.</li>
+    </ul>
+
+    <div class="callout warning">
+      <strong>⚠️ Knives and Utensils Too</strong>
+      The colour-coding system should extend beyond boards to knife handles, tongs, and prep utensils. A red-handled knife is for red meat. Mixing utensils across food types defeats the entire system.
+    </div>
+  </section>
+
+  <!-- SECTION 8: RECORDS -->
+  <section id="records">
+    <span class="section-label">Section 08</span>
+    <h2>Records to Keep</h2>
+
+    <p>Documentation is not paperwork for its own sake — it is your evidence that food safety procedures were followed. In the event of a complaint, inspection, or illness investigation, records are your protection. Regulators expect to see them. Gaps in records suggest gaps in practice.</p>
+
+    <table class="record-table">
+      <thead>
+        <tr>
+          <th>Record Type</th>
+          <th>Frequency</th>
+          <th>Retention Period</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Refrigerator/freezer temperature logs</td><td>Start of shift + every 4 hours</td><td>Minimum 3 months</td></tr>
+        <tr><td>Hot holding temperature logs</td><td>Every 2 hours during service</td><td>Minimum 3 months</td></tr>
+        <tr><td>Cooking temperature records</td><td>Every batch / every service</td><td>Minimum 3 months</td></tr>
+        <tr><td>Cooling logs</td><td>Every cooling event</td><td>Minimum 3 months</td></tr>
+        <tr><td>Thermometer calibration log</td><td>Daily / after each impact</td><td>Minimum 12 months</td></tr>
+        <tr><td>Dishwasher temperature &amp; sanitiser log</td><td>Start of each dishwashing shift</td><td>Minimum 3 months</td></tr>
+        <tr><td>Cleaning &amp; sanitising schedule</td><td>After each task completed</td><td>Minimum 3 months</td></tr>
+        <tr><td>Air vent &amp; chimney cleaning records</td><td>After each cleaning event</td><td>Minimum 12 months</td></tr>
+        <tr><td>Used oil disposal records</td><td>Each disposal event</td><td>Minimum 12 months</td></tr>
+        <tr><td>Pest control inspection records</td><td>After each inspection/treatment</td><td>Minimum 12 months</td></tr>
+        <tr><td>Staff food safety training records</td><td>At induction + annually</td><td>Duration of employment + 2 years</td></tr>
+        <tr><td>Supplier delivery &amp; temperature records</td><td>Each delivery</td><td>Minimum 3 months</td></tr>
+      </tbody>
+    </table>
+
+    <p>All records should include: date, time, reading or action taken, name of the person completing the record, and a supervisor sign-off column for end-of-day review. Digital logging systems are acceptable and increasingly preferred for their audit trail and alert functions.</p>
+  </section>
+
+  <!-- SECTION 9: VENTILATION -->
+  <section id="ventilation">
+    <span class="section-label">Section 09</span>
+    <h2>Air Vent &amp; Chimney Cleaning</h2>
+
+    <p>Kitchen ventilation systems — canopy hoods, extraction fans, ductwork, filters, and chimney stacks — accumulate grease rapidly in a working kitchen. Grease-laden ducts are the leading cause of commercial kitchen fires. They also harbour bacteria, create odour problems, and degrade air quality for staff.</p>
+
+    <h3>Why This Is a Food Safety Issue</h3>
+    <p>Grease and condensation in overhead canopies and ducts can drip onto food preparation surfaces and equipment below. Dirty filters reduce extraction efficiency, which increases ambient kitchen temperature — pushing against your temperature control targets. Poor ventilation also creates conditions for mould growth.</p>
+
+    <h3>Cleaning Schedule</h3>
+    <ul>
+      <li><strong>Canopy filters (baffle or mesh):</strong> Remove and degrease weekly, or more frequently in high-volume operations. Soak in hot degreasing solution, scrub, rinse, air dry before replacing.</li>
+      <li><strong>Canopy interior surfaces:</strong> Wipe down with degreaser solution weekly. Inspect for grease pooling monthly.</li>
+      <li><strong>Ductwork and chimney:</strong> Professional deep clean every 3–6 months depending on volume. High-volume or wok/fry operations: every 3 months minimum. Low-volume: every 6 months. Obtain a certificate of cleaning from the contractor and retain on file.</li>
+      <li><strong>Extraction fans and motors:</strong> Inspect monthly. Professional service annually.</li>
+    </ul>
+
+    <div class="callout warning">
+      <strong>⚠️ Insurance &amp; Legal Requirement</strong>
+      Most commercial kitchen insurance policies require documentary evidence of regular duct and chimney cleaning. Failure to maintain records — or failure to clean — can void your insurance in the event of a fire. Keep all contractor certificates on file for a minimum of 3 years.
+    </div>
+
+    <h3>What Records to Keep</h3>
+    <ul>
+      <li>Date of cleaning, contractor name and contact details</li>
+      <li>Areas cleaned (filters, canopy, ductwork, chimney)</li>
+      <li>Method used and chemicals applied</li>
+      <li>Certificate of cleaning (contractor-issued)</li>
+      <li>Any defects noted and remedial action taken</li>
+      <li>Next scheduled cleaning date</li>
+    </ul>
+  </section>
+
+  <!-- SECTION 10: OIL DISPOSAL -->
+  <section id="oil">
+    <span class="section-label">Section 10</span>
+    <h2>Used Cooking Oil Disposal</h2>
+
+    <p>Used cooking oil — from fryers, pans, and grills — is a regulated waste stream in most jurisdictions. Disposing of it incorrectly causes environmental damage (blocked drains, waterway contamination) and creates legal liability for the operation. It also represents a commercial opportunity, as used cooking oil has significant value in biodiesel production.</p>
+
+    <h3>How to Manage Used Oil Safely</h3>
+    <ol class="steps">
+      <li>Allow oil to cool to below 120°F (49°C) before handling. Never attempt to move or dispose of hot oil.</li>
+      <li>Filter oil daily if reusing (remove food particles that accelerate degradation). Replace fryer oil when it darkens significantly, smokes below operating temperature, or develops off-flavours.</li>
+      <li>Drain cooled oil into a sealed, dedicated used oil container. Label it clearly: "USED COOKING OIL — NOT FOR CONSUMPTION."</li>
+      <li>Store sealed containers in a cool, dry, secure area — away from drains and water sources.</li>
+      <li>Arrange collection by a licensed waste oil contractor. Most will collect free of charge or pay a small fee depending on volume and quality.</li>
+      <li>Obtain a waste transfer note from the contractor for every collection. Retain these for minimum 2 years (legal requirement in most jurisdictions).</li>
+    </ol>
+
+    <div class="callout warning">
+      <strong>⚠️ Never Pour Oil Down the Drain</strong>
+      Even small amounts of oil cause fatbergs in sewer systems. This can result in significant fines from utilities authorities. A single deep fryer emptied down a drain can cause thousands in remedial plumbing costs downstream.
+    </div>
+
+    <h3>What Records to Keep</h3>
+    <ul>
+      <li>Date of oil disposal or collection</li>
+      <li>Volume of oil collected (estimated litres or kg)</li>
+      <li>Name and licence number of waste contractor</li>
+      <li>Waste transfer note reference number</li>
+    </ul>
+  </section>
+
+  <!-- SECTION 11: WASTE BINS -->
+  <section id="waste">
+    <span class="section-label">Section 11</span>
+    <h2>Colour-Coded Waste Bins</h2>
+
+    <p>Waste segregation is both an environmental responsibility and a food safety requirement. The correct separation of waste streams reduces contamination risk, supports recycling targets, ensures compliance with local waste regulations, and can reduce disposal costs for the operation.</p>
+
+    <div class="bin-grid">
+      <div class="bin-card bin-black">
+        <span class="bin-icon">🗑️</span>
+        <strong>BLACK / GREY</strong>
+        General / Residual Waste — Non-recyclable, non-food items. Packaging that cannot be recycled.
+      </div>
+      <div class="bin-card bin-green">
+        <span class="bin-icon">🥦</span>
+        <strong>GREEN / BROWN</strong>
+        Food &amp; Organic Waste — All food scraps, prep waste, spoiled food. Collected for composting or anaerobic digestion.
+      </div>
+      <div class="bin-card bin-blue">
+        <span class="bin-icon">♻️</span>
+        <strong>BLUE</strong>
+        Paper &amp; Card Recycling — Clean cardboard, paper, newspapers. Flatten all boxes. Remove tape and staples where possible.
+      </div>
+      <div class="bin-card bin-yellow">
+        <span class="bin-icon">🧴</span>
+        <strong>YELLOW</strong>
+        Mixed Recycling — Clean plastics (bottles, containers, trays), metal tins, aluminium cans. Rinse containers before placing in bin.
+      </div>
+      <div class="bin-card bin-red">
+        <span class="bin-icon">⚠️</span>
+        <strong>RED</strong>
+        Hazardous / Clinical Waste — Chemical containers, broken glass, used cleaning product containers, any waste with safety risk. Follow local regulations for disposal.
+      </div>
+    </div>
+
+    <h3>Kitchen Waste Management Rules</h3>
+    <ul>
+      <li>All waste bins in food preparation areas must have <strong>lids and foot-operated pedals</strong> — hands must not touch bin lids in a food prep area.</li>
+      <li>Waste bins in the kitchen must be <strong>lined with appropriate waste sacks</strong> and emptied at minimum at the end of every shift, more frequently during high-volume service.</li>
+      <li>Wash and sanitise waste bin interiors weekly. A dirty bin is a source of odour, pests, and bacterial contamination.</li>
+      <li>Waste storage areas (external bins and compactors) must be kept clean, covered, and inaccessible to pests. Inspect daily.</li>
+      <li>Staff must wash hands after handling any waste, before returning to food prep.</li>
+      <li>Post colour-code charts beside all waste stations — new and agency staff must not have to guess.</li>
+    </ul>
+
+    <div class="callout safe">
+      <strong>✅ Staff Training Point</strong>
+      Waste segregation errors are almost always a training issue, not a negligence issue. Include a 10-minute waste segregation walkthrough in every new staff induction and display clear bin labelling with photographs, not just words.
+    </div>
+  </section>
+
+  <!-- CLOSING -->
+  <section>
+    <div class="callout safe">
+      <strong>✅ Final Note: Culture Beats Compliance</strong>
+      Every system in this guide — temperature logs, colour-coded boards, calibration records — is only as effective as the culture that supports it. Rules followed only when inspectors visit are not food safety systems. They are theatre. Build a kitchen team that understands <em>why</em> these standards exist, and compliance becomes a by-product of shared values, not a performance.
+    </div>
+    <p style="margin-top:24px;"><em>This guide should be reviewed and updated whenever local food safety regulations change. Always verify current temperature standards with your national food safety authority — standards vary by country and by food type. This document is intended as an operational reference, not a substitute for formal food safety certification.</em></p>
+  </section>
+
+</div>
+
+<footer>
+  <p>&copy; 2026 <a href="https://nigelthomas.live">nigelthomas.live</a> &mdash; Food Safety &amp; Kitchen Operations Resources</p>
+  <p style="margin-top:8px;font-size:0.8rem;">For training use. Always verify current standards with your local food safety authority.</p>
+</footer>
+
+</body>
+</html>
