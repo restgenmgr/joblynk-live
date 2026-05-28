@@ -1,0 +1,616 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hot &amp; Cold Kitchens: The Complete Guide to Food Temperature Safety | Nigel Thomas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Source+Serif+4:ital,opsz,wght@0,8..60,300;0,8..60,400;0,8..60,600;1,8..60,300;1,8..60,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:        #1a1008;
+      --paper:      #faf6ef;
+      --warm-mid:   #f0e8d8;
+      --rust:       #b84c1e;
+      --rust-light: #d4673a;
+      --cold:       #2a5c8a;
+      --cold-light: #4a82b4;
+      --gold:       #c8922a;
+      --rule:       #d4c4a8;
+      --caption:    #7a6a52;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background-color: var(--paper);
+      color: var(--ink);
+      font-family: 'Source Serif 4', Georgia, serif;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    /* ─── MASTHEAD ─────────────────────────────────── */
+    .masthead {
+      background: var(--ink);
+      padding: 14px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .masthead .site-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--gold);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .masthead .site-tag {
+      font-size: 0.75rem;
+      color: var(--rule);
+      letter-spacing: 0.08em;
+      font-style: italic;
+    }
+
+    /* ─── HERO ─────────────────────────────────────── */
+    .hero {
+      background: var(--ink);
+      padding: 80px 40px 60px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 39px,
+        rgba(200,146,42,0.07) 39px,
+        rgba(200,146,42,0.07) 40px
+      );
+    }
+    .hero-inner {
+      max-width: 820px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-kicker {
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+      font-family: 'Source Serif 4', serif;
+      font-weight: 600;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      color: #fff;
+      line-height: 1.12;
+      margin-bottom: 22px;
+    }
+    .hero h1 em {
+      color: var(--gold);
+      font-style: italic;
+    }
+    .hero-deck {
+      font-size: 1.15rem;
+      color: #c8bfaf;
+      max-width: 680px;
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+    .hero-meta {
+      font-size: 0.8rem;
+      color: var(--caption);
+      letter-spacing: 0.05em;
+    }
+    .hero-meta span { color: var(--gold); }
+
+    /* ─── TEMP BADGE ROW ───────────────────────────── */
+    .badge-row {
+      display: flex;
+      gap: 0;
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .badge {
+      flex: 1;
+      padding: 22px 20px;
+      text-align: center;
+    }
+    .badge.hot   { background: var(--rust); }
+    .badge.danger { background: #7a3a12; }
+    .badge.cold  { background: var(--cold); }
+    .badge-temp {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 900;
+      color: #fff;
+      display: block;
+      line-height: 1;
+    }
+    .badge-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.8);
+      margin-top: 4px;
+      display: block;
+    }
+
+    /* ─── ARTICLE BODY ─────────────────────────────── */
+    .article-wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 60px 40px 80px;
+    }
+
+    /* section headings */
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--ink);
+      margin: 60px 0 18px;
+      padding-bottom: 12px;
+      border-bottom: 2px solid var(--rule);
+    }
+    h2.cold-head { border-color: var(--cold); color: var(--cold); }
+    h2.hot-head  { border-color: var(--rust); color: var(--rust); }
+    h2.gold-head { border-color: var(--gold); color: #8a620a; }
+
+    h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      color: var(--ink);
+      margin: 36px 0 10px;
+    }
+    h3.sub { font-style: italic; font-weight: 700; }
+
+    p { margin-bottom: 1.3em; }
+
+    /* pull-quote */
+    .pullquote {
+      border-left: 5px solid var(--gold);
+      margin: 36px 0;
+      padding: 18px 28px;
+      background: var(--warm-mid);
+      font-family: 'Playfair Display', serif;
+      font-size: 1.35rem;
+      font-style: italic;
+      color: #4a3a1a;
+      line-height: 1.5;
+    }
+    .pullquote cite {
+      display: block;
+      font-size: 0.8rem;
+      font-style: normal;
+      font-family: 'Source Serif 4', serif;
+      color: var(--caption);
+      margin-top: 10px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* callout box */
+    .callout {
+      border: 2px solid var(--rule);
+      border-radius: 2px;
+      padding: 24px 28px;
+      margin: 32px 0;
+      background: #fff;
+    }
+    .callout.danger-box {
+      border-color: var(--rust);
+      background: #fff8f5;
+    }
+    .callout.cold-box {
+      border-color: var(--cold);
+      background: #f5f8ff;
+    }
+    .callout.gold-box {
+      border-color: var(--gold);
+      background: #fffbf0;
+    }
+    .callout-head {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .callout.danger-box .callout-head { color: var(--rust); }
+    .callout.cold-box   .callout-head { color: var(--cold); }
+    .callout.gold-box   .callout-head { color: #8a620a; }
+
+    /* temp scale graphic */
+    .temp-scale {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 0;
+      margin: 36px 0;
+      border: 2px solid var(--rule);
+      overflow: hidden;
+    }
+    .temp-scale-row {
+      display: contents;
+    }
+    .temp-scale-row .deg {
+      font-family: 'Playfair Display', serif;
+      font-weight: 900;
+      font-size: 1.1rem;
+      padding: 14px 12px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255,255,255,0.25);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .temp-scale-row .desc {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--rule);
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+    }
+    .row-freeze   .deg { background: #1a3a6a; }
+    .row-fridge   .deg { background: var(--cold); }
+    .row-chill    .deg { background: #3a8a5a; }
+    .row-danger   .deg { background: #c06020; }
+    .row-hot      .deg { background: var(--rust); }
+    .row-cook     .deg { background: #8a1a1a; }
+    .row-freeze   .desc { background: #f0f4ff; }
+    .row-fridge   .desc { background: #f0f6ff; }
+    .row-chill    .desc { background: #f0fff4; }
+    .row-danger   .desc { background: #fff4ec; font-weight: 600; }
+    .row-hot      .desc { background: #fff8f5; }
+    .row-cook     .desc { background: #fff5f5; }
+
+    /* rules list */
+    ul.rules {
+      list-style: none;
+      padding: 0;
+      margin-bottom: 1.3em;
+    }
+    ul.rules li {
+      padding: 8px 0 8px 32px;
+      position: relative;
+      border-bottom: 1px solid var(--rule);
+    }
+    ul.rules li:last-child { border-bottom: none; }
+    ul.rules li::before {
+      content: '▸';
+      position: absolute;
+      left: 6px;
+      color: var(--gold);
+    }
+
+    ul.rules.cold-rules li::before { color: var(--cold); }
+    ul.rules.hot-rules  li::before { color: var(--rust); }
+
+    /* fridge layout diagram */
+    .fridge-diagram {
+      border: 3px solid var(--cold);
+      border-radius: 4px 4px 8px 8px;
+      overflow: hidden;
+      margin: 32px 0;
+      box-shadow: 4px 4px 0 var(--cold-light);
+    }
+    .fridge-header {
+      background: var(--cold);
+      color: #fff;
+      text-align: center;
+      padding: 10px;
+      font-family: 'Playfair Display', serif;
+      font-size: 0.9rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .fridge-shelf {
+      padding: 16px 20px;
+      border-bottom: 2px dashed var(--cold-light);
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .fridge-shelf:last-child { border-bottom: none; }
+    .shelf-label {
+      background: var(--cold);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 8px;
+      border-radius: 2px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      align-self: flex-start;
+      margin-top: 2px;
+    }
+    .shelf-label.red-label { background: var(--rust); }
+    .shelf-label.green-label { background: #2a7a4a; }
+    .shelf-label.amber-label { background: #c08020; }
+    .shelf-content { font-size: 0.92rem; line-height: 1.6; }
+    .shelf-content strong { color: var(--cold); }
+    .shelf-content.red-content strong { color: var(--rust); }
+
+    /* log table */
+    table.log-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+      font-size: 0.88rem;
+    }
+    table.log-table th {
+      background: var(--ink);
+      color: #fff;
+      padding: 11px 14px;
+      text-align: left;
+      font-family: 'Source Serif 4', serif;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+    table.log-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--rule);
+      vertical-align: top;
+    }
+    table.log-table tr:nth-child(even) td { background: var(--warm-mid); }
+
+    /* FIFO banner */
+    .fifo-banner {
+      background: var(--ink);
+      color: #fff;
+      padding: 28px 32px;
+      margin: 36px 0;
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+    .fifo-acronym {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      font-weight: 900;
+      color: var(--gold);
+      line-height: 1;
+      flex-shrink: 0;
+    }
+    .fifo-text h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      color: var(--gold);
+      margin: 0 0 6px;
+    }
+    .fifo-text p {
+      font-size: 0.9rem;
+      color: #c8bfaf;
+      margin: 0;
+      line-height: 1.6;
+    }
+
+    /* thermometer types */
+    .thermo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 18px;
+      margin: 24px 0;
+    }
+    .thermo-card {
+      border: 2px solid var(--rule);
+      padding: 18px;
+      background: #fff;
+    }
+    .thermo-card h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      margin-bottom: 8px;
+      color: var(--ink);
+    }
+    .thermo-card p {
+      font-size: 0.84rem;
+      color: var(--caption);
+      margin: 0;
+      line-height: 1.5;
+    }
+    .thermo-card .use-tag {
+      display: inline-block;
+      margin-top: 10px;
+      background: var(--cold);
+      color: #fff;
+      font-size: 0.68rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+    }
+
+    /* section rule */
+    .section-rule {
+      border: none;
+      border-top: 3px double var(--rule);
+      margin: 50px 0;
+    }
+
+    /* inline temp highlight */
+    .t-hot   { color: var(--rust);       font-weight: 700; }
+    .t-cold  { color: var(--cold);       font-weight: 700; }
+    .t-gold  { color: #8a620a;           font-weight: 700; }
+    .t-warn  { background: #ffe8d8; padding: 0 4px; border-radius: 2px; font-weight: 700; }
+
+    /* byline */
+    .byline {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 28px 0;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      margin-bottom: 48px;
+    }
+    .byline-avatar {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: var(--gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      color: var(--ink);
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+    .byline-info { font-size: 0.85rem; }
+    .byline-name { font-weight: 700; color: var(--ink); }
+    .byline-role { color: var(--caption); font-style: italic; }
+
+    /* footer */
+    footer {
+      background: var(--ink);
+      color: var(--caption);
+      text-align: center;
+      padding: 32px 20px;
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+    }
+    footer span { color: var(--gold); }
+
+    @media (max-width: 640px) {
+      .masthead { padding: 14px 20px; }
+      .hero { padding: 50px 20px 40px; }
+      .article-wrap { padding: 40px 20px 60px; }
+      .badge-row { flex-direction: column; }
+      .fifo-banner { flex-direction: column; gap: 14px; }
+      .temp-scale { grid-template-columns: 72px 1fr; }
+      h2 { font-size: 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="masthead">
+  <div class="site-name">nigelthomas.live</div>
+  <div class="site-tag">Hospitality &amp; Culinary Insight</div>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-kicker">Food Safety · HACCP · Kitchen Operations</div>
+    <h1>Hot &amp; Cold Kitchens:<br /><em>Mastering the Critical Temperature Points That Keep Food Safe</em></h1>
+    <p class="hero-deck">A comprehensive guide for kitchen professionals on the temperature thresholds, equipment, logging requirements, and storage protocols that stand between a well-run kitchen and a food safety disaster.</p>
+    <div class="hero-meta">By <span>Nigel Thomas</span> &nbsp;·&nbsp; Hospitality Professional &amp; Food Safety Advocate</div>
+  </div>
+</div>
+
+<div class="badge-row">
+  <div class="badge hot">
+    <span class="badge-temp">63°C / 140°F</span>
+    <span class="badge-label">Hot Holding Minimum</span>
+  </div>
+  <div class="badge danger">
+    <span class="badge-temp">5°C – 63°C</span>
+    <span class="badge-label">The Danger Zone</span>
+  </div>
+  <div class="badge cold">
+    <span class="badge-temp">1°C – 5°C</span>
+    <span class="badge-label">Safe Refrigeration</span>
+  </div>
+</div>
+
+<main class="article-wrap">
+  <div class="byline">
+    <div class="byline-avatar">NT</div>
+    <div class="byline-info">
+      <div class="byline-name">Nigel Thomas</div>
+      <div class="byline-role">Chef &amp; Hospitality Consultant · nigelthomas.live</div>
+    </div>
+  </div>
+
+  <p>Every kitchen — from a bustling hotel banquet operation to a compact restaurant service line — runs on an invisible framework of temperatures. Get those temperatures right and you protect your guests, your reputation, and your licence. Get them wrong, even once, and the consequences can be swift and severe: a food poisoning outbreak, an enforcement closure, or worse.</p>
+
+  <p>This guide is not a dry regulatory textbook. It is a practical, deeply experienced walkthrough of everything that matters when it comes to temperature control in professional kitchens. We will cover the science behind the numbers, the precise critical thresholds for both hot and cold operations, the right equipment and how to use it, the logs that inspectors will demand to see, correct fridge stacking and storage hierarchy, FIFO principles, and the rules governing dry and ambient goods storage. By the end, you will have a reference you can return to again and again — and share with every member of your brigade.</p>
+
+  <div class="pullquote">
+    "Temperature control is not paperwork. It is the single most powerful tool a kitchen has for preventing foodborne illness. Every reading you take and record is an act of professional care."
+    <cite>— Food Safety Industry Principle</cite>
+  </div>
+
+  <hr class="section-rule" />
+
+  <h2>Understanding the Danger Zone: Why Temperature Is Everything</h2>
+
+  <p>Bacteria do not care about your menu, your reputation, or your Michelin ambitions. They care about warmth, moisture, time, and nutrients — all four of which are abundantly present in any professional kitchen. The moment a potentially hazardous food enters the temperature range where bacteria thrive, a clock starts ticking.</p>
+
+  <p>That range — universally known as the <strong>Temperature Danger Zone</strong> — runs from <span class="t-cold">5°C (41°F)</span> at the lower boundary to <span class="t-hot">63°C (145°F)</span> at the upper boundary. In this zone, common pathogens including <em>Salmonella</em>, <em>E. coli</em>, <em>Listeria monocytogenes</em>, <em>Campylobacter</em>, and <em>Staphylococcus aureus</em> can multiply rapidly. Under optimal conditions, bacteria double in population approximately every 20 minutes. A food item that starts with a manageable bacterial load can, in just a few hours within the danger zone, reach numbers that cause serious illness.</p>
+
+  <div class="temp-scale">
+    <div class="temp-scale-row row-freeze"><div class="deg">−18°C</div><div class="desc"><strong>Freezer storage.</strong> Bacterial activity effectively suspended. Long-term preservation. Check minimum −18°C / 0°F.</div></div>
+    <div class="temp-scale-row row-fridge"><div class="deg">1°C–5°C</div><div class="desc"><strong>Safe refrigeration zone.</strong> Bacterial growth slowed significantly. The target range for all fridges and walk-ins. Most pathogens dormant.</div></div>
+    <div class="temp-scale-row row-chill"><div class="deg">5°C–8°C</div><div class="desc"><strong>Borderline cold zone.</strong> Upper tolerance for short-term refrigerated storage. Chilled deliveries checked against this threshold.</div></div>
+    <div class="temp-scale-row row-danger"><div class="deg">5°C–63°C</div><div class="desc">⚠ <strong>THE DANGER ZONE.</strong> Rapid bacterial multiplication. Food must not remain here for longer than necessary — maximum 2 hours cumulative before action required.</div></div>
+    <div class="temp-scale-row row-hot"><div class="deg">63°C+</div><div class="desc"><strong>Safe hot holding.</strong> 63°C / 140°F is the critical lower threshold for hot holding. Bacteria growth inhibited. Food must be held at or above this at all times.</div></div>
+    <div class="temp-scale-row row-cook"><div class="deg">75°C+</div><div class="desc"><strong>Minimum cooking temperature.</strong> Core temperature required to destroy vegetative pathogens. Many operations use 82°C as their internal target for added safety.</div></div>
+  </div>
+
+  <hr class="section-rule" />
+
+  <h2 class="cold-head">Fridge Storage: The Hierarchy That Prevents Cross-Contamination</h2>
+
+  <div class="fridge-diagram">
+    <div class="fridge-header">Commercial Refrigerator / Walk-In Cold Room — Correct Storage Hierarchy</div>
+    <div class="fridge-shelf"><div class="shelf-label green-label">Top Shelf</div><div class="shelf-content"><strong>Ready-to-Eat Foods, Cooked Items &amp; Desserts</strong><br />Cooked proteins awaiting service, prepared salads, desserts, dairy products, soft cheeses, ready-to-eat deli meats. These items will receive no further cooking — any contamination is a direct food safety failure.</div></div>
+    <div class="fridge-shelf"><div class="shelf-label green-label">Upper-Mid Shelf</div><div class="shelf-content"><strong>Whole Fruits &amp; Vegetables, Salad Leaves, Fresh Herbs, Cut Produce</strong><br />Washed and unwashed produce. Where possible, keep washed ready-to-use items above unwashed items still in soil or packaging.</div></div>
+    <div class="fridge-shelf"><div class="shelf-label amber-label">Mid Shelf</div><div class="shelf-content"><strong>Whole Fish, Seafood &amp; Cured Products</strong><br />Whole fish should ideally be stored on ice in a drip-proof container.</div></div>
+    <div class="fridge-shelf"><div class="shelf-label red-label">Lower-Mid Shelf</div><div class="shelf-content red-content"><strong>Raw Whole Cuts of Beef &amp; Pork</strong><br />Whole muscle cuts that will be cooked to safe temperatures before service.</div></div>
+    <div class="fridge-shelf"><div class="shelf-label red-label">Bottom Shelf — Always</div><div class="shelf-content red-content"><strong>Raw Poultry (Chicken, Duck, Turkey) &amp; Raw Minced Meat</strong><br />Raw poultry carries the highest risk. Must always be stored at the very bottom in fully sealed containers.</div></div>
+  </div>
+
+  <div class="callout danger-box">
+    <div class="callout-head">Absolute Rules for Fridge Storage</div>
+    <ul class="rules"><li>All raw meats must be stored in lidded or cling-film-covered containers — never in open trays</li><li>Cooked and raw items must never share containers, trays, or shelves</li><li>All items must be clearly labelled with content, date, and use-by date</li><li>Do not overpack fridges — air must circulate freely</li><li>Never place hot or warm food directly into the fridge — blast chill first</li></ul>
+  </div>
+
+  <hr class="section-rule" />
+
+  <div class="fifo-banner">
+    <div class="fifo-acronym">FIFO</div>
+    <div class="fifo-text"><h3>First In, First Out</h3><p>The single most important stock rotation principle. New deliveries always go behind existing stock. Older items always come forward and are used first.</p></div>
+  </div>
+
+  <h2 class="gold-head">Quick Reference: Critical Temperature Figures at a Glance</h2>
+
+  <table class="log-table">
+    <thead><tr><th>Zone / Process</th><th>°C</th><th>°F</th><th>Key Rule</th></tr></thead>
+    <tbody>
+      <tr><td>Freezer storage</td><td>−18°C or below</td><td>0°F or below</td><td>Maintain constant; no partial thaw</td></tr>
+      <tr><td>Refrigerator / Walk-in target</td><td>1°C – 5°C</td><td>34°F – 41°F</td><td>Check twice daily minimum; log every reading</td></tr>
+      <tr><td>Danger zone — lower boundary</td><td>5°C</td><td>41°F</td><td>Cold food must stay below this</td></tr>
+      <tr><td>Danger zone — upper boundary</td><td>63°C</td><td>145°F</td><td>Hot food must stay above this</td></tr>
+      <tr><td>Hot holding minimum</td><td>63°C</td><td>140°F</td><td>Core food temp, not just equipment reading</td></tr>
+      <tr><td>Minimum cooking temp</td><td>75°C (82°C for poultry)</td><td>167°F (180°F)</td><td>Hold for 30 seconds at core</td></tr>
+      <tr><td>Two-hour rule</td><td>Any temp in danger zone</td><td>Any temp in danger zone</td><td>Max 2 hrs cumulative before action required</td></tr>
+      <tr><td>Floor clearance (storage)</td><td colspan="2">Min 6 in (15cm) statutory; 9 in (23cm) best practice</td><td>Applies to all storage areas</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout gold-box" style="margin-top: 40px;">
+    <div class="callout-head">About the Author</div>
+    <p>Nigel Thomas is a hospitality professional, food safety advocate, and culinary consultant. For more articles on kitchen operations, food safety, and professional culinary management, visit <strong>nigelthomas.live</strong>.</p>
+  </div>
+</main>
+
+<footer>
+  <p>&copy; 2026 <span>nigelthomas.live</span> · All rights reserved · Food Safety &amp; Hospitality Insight</p>
+  <p style="margin-top:8px;">This article is provided for professional guidance purposes. Always consult your local regulatory authority for jurisdiction-specific requirements.</p>
+</footer>
+
+</body>
+</html>
