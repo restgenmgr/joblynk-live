@@ -1,0 +1,362 @@
+# Create the file with the blog index HTML
+@"
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JobLynk Blog | Hospitality Operations & Sustainability Resources</title>
+    <meta name="description" content="Expert guides on chemical safety, waste management, PPE, sustainability, and hospitality operations for hotels, kitchens, and housekeeping professionals.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, #f5f7fb 0%, #eef2f6 100%);
+            color: #1a2c3e;
+            line-height: 1.5;
+        }
+
+        .site-header {
+            background: #0a1c12;
+            color: #e8f0e5;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            border-bottom: 3px solid #2c7a4b;
+        }
+
+        .site-header h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            background: linear-gradient(135deg, #ffffff, #b8e1b0);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 0.5rem;
+        }
+
+        .site-header p {
+            color: #b8cfb0;
+            font-size: 1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        .category-section {
+            margin-bottom: 4rem;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid #e2e8f0;
+        }
+
+        .category-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .category-title h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #0e2b1f;
+        }
+
+        .category-badge {
+            background: #2c7a4b;
+            color: white;
+            padding: 0.25rem 1rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .category-count {
+            color: #6b7a6f;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #e9edc9;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.15);
+            border-color: #c5d5b5;
+        }
+
+        .card-tag {
+            display: inline-block;
+            padding: 0.3rem 1rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            border-radius: 30px;
+            margin: 1.2rem 1.5rem 0;
+            width: fit-content;
+        }
+
+        .tag-tech {
+            background: #e8eef3;
+            color: #1a5d8f;
+        }
+
+        .tag-operations {
+            background: #e8f3ea;
+            color: #2c7a4b;
+        }
+
+        .blog-card h3 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin: 0.75rem 1.5rem 0.5rem;
+            line-height: 1.35;
+            color: #1a2c3e;
+        }
+
+        .blog-card .excerpt {
+            color: #4a5b6b;
+            font-size: 0.9rem;
+            margin: 0 1.5rem 1rem;
+            line-height: 1.5;
+        }
+
+        .card-meta {
+            display: flex;
+            gap: 1rem;
+            margin: 0 1.5rem 1rem;
+            font-size: 0.75rem;
+            color: #7f8c8d;
+        }
+
+        .read-link {
+            margin: 0.5rem 1.5rem 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #2c7a4b;
+            text-decoration: none;
+            transition: gap 0.2s;
+        }
+
+        .read-link:hover {
+            gap: 0.75rem;
+            color: #1e5a3a;
+        }
+
+        .coming-soon {
+            background: #fafbf8;
+            border: 2px dashed #d4e2d0;
+            opacity: 0.8;
+        }
+
+        .coming-badge {
+            background: #e2dcd3;
+            color: #6b5a4a;
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 0.2rem 0.8rem;
+            border-radius: 30px;
+            display: inline-block;
+            margin: 1.2rem 1.5rem 0;
+            width: fit-content;
+        }
+
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            flex-wrap: wrap;
+            background: white;
+            padding: 1.5rem 2rem;
+            border-radius: 60px;
+            margin-bottom: 3rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: #2c7a4b;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: #6b7a6f;
+            font-weight: 500;
+        }
+
+        .footer {
+            background: #0a1c12;
+            color: #9bbf91;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 760px) {
+            .container { padding: 1.5rem; }
+            .blog-grid { grid-template-columns: 1fr; }
+            .stats-bar { gap: 1.5rem; }
+            .category-header { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <h1>📋 JobLynk Knowledge Base</h1>
+        <p>Expert guides for hospitality professionals — operations, safety, sustainability & technology</p>
+    </header>
+    <div class="container">
+        <div class="stats-bar">
+            <div class="stat-item">
+                <div class="stat-number">2</div>
+                <div class="stat-label">Published Guides</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">4+</div>
+                <div class="stat-label">Coming Soon</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">2026</div>
+                <div class="stat-label">Updated Standards</div>
+            </div>
+        </div>
+
+        <!-- NON-TECH / OPERATIONS SECTION -->
+        <div class="category-section">
+            <div class="category-header">
+                <div class="category-title">
+                    <h2>🏨 Operations & Sustainability</h2>
+                    <span class="category-badge">Non-Tech</span>
+                </div>
+                <div class="category-count">Core hospitality operations, waste management, sustainability, housekeeping, F&B standards</div>
+            </div>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <span class="card-tag tag-operations">♻️ Waste Management</span>
+                    <h3>Waste Disposal & Segregation in Hotels, Kitchens and Housekeeping</h3>
+                    <p class="excerpt">Complete guide to wet waste, dry waste, plastic management, used oil disposal, medical waste, color coding systems, and 2026 sustainability standards.</p>
+                    <div class="card-meta">
+                        <span>📅 May 2026</span>
+                        <span>⏱️ 8 min read</span>
+                    </div>
+                    <a href="Waste%20Segregation%20%26%20Disposal%20in%20Hotels%2C%20Kitchens%20%26%20Housekeeping" class="read-link">Read full article →</a>
+                </div>
+                <div class="blog-card coming-soon">
+                    <span class="coming-badge">🔜 Coming June 2026</span>
+                    <h3>Food Safety & HACCP for Hotels & Restaurants</h3>
+                    <p class="excerpt">Temperature control, cross-contamination prevention, critical control points, and food hygiene audit preparation.</p>
+                    <div class="card-meta">
+                        <span>📅 Est. June 2026</span>
+                        <span>⏱️ 10 min read</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TECH SECTION -->
+        <div class="category-section">
+            <div class="category-header">
+                <div class="category-title">
+                    <h2>💻 Tech & Digital Hospitality</h2>
+                    <span class="category-badge">Tech</span>
+                </div>
+                <div class="category-count">PMS, automation, AI, digital audits, cybersecurity, smart hotel tech</div>
+            </div>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <span class="card-tag tag-tech">🧪 Chemical Safety & Compliance</span>
+                    <h3>Chemical Safety, PPE, Storage & Record Keeping in Hotels, Kitchens & Housekeeping</h3>
+                    <p class="excerpt">PPE requirements, chemical storage guidelines, color coding, pest control, digital record keeping, and 2026 audit standards.</p>
+                    <div class="card-meta">
+                        <span>📅 May 2026</span>
+                        <span>⏱️ 10 min read</span>
+                    </div>
+                    <a href="chemical-safety-pppe-storage-hotels-kitchens-housekeeping-2026.html" class="read-link">Read full article →</a>
+                </div>
+                <div class="blog-card coming-soon">
+                    <span class="coming-badge">🤖 Coming July 2026</span>
+                    <h3>AI & Automation in Housekeeping Operations</h3>
+                    <p class="excerpt">Smart sensors, robotic vacuums, AI-driven scheduling, and IoT in hotel housekeeping management.</p>
+                    <div class="card-meta">
+                        <span>📅 Est. July 2026</span>
+                        <span>⏱️ 9 min read</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FEATURED RESOURCES -->
+        <div class="category-section">
+            <div class="category-header">
+                <div class="category-title">
+                    <h2>🔗 Featured Resources</h2>
+                </div>
+                <div class="category-count">Essential reading for all hospitality professionals</div>
+            </div>
+            <div class="blog-grid">
+                <div class="blog-card">
+                    <span class="card-tag tag-operations">⭐ Best Practice</span>
+                    <h3>Waste Segregation: Operational Deep Dive</h3>
+                    <p class="excerpt">Color coding, storage standards, staff training, and sustainability metrics for hotels.</p>
+                    <a href="Waste%20Segregation%20%26%20Disposal%20in%20Hotels%2C%20Kitchens%20%26%20Housekeeping" class="read-link">View waste guide →</a>
+                </div>
+                <div class="blog-card">
+                    <span class="card-tag tag-tech">⭐ Safety Standard</span>
+                    <h3>Chemical Safety & PPE Master Guide</h3>
+                    <p class="excerpt">Complete PPE requirements, storage protocols, and audit documentation for 2026.</p>
+                    <a href="chemical-safety-pppe-storage-hotels-kitchens-housekeeping-2026.html" class="read-link">View chemical safety guide →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>📚 JobLynk.live — Empowering hospitality professionals with industry-leading knowledge</p>
+        <p style="margin-top: 0.5rem; font-size: 0.75rem;">© 2026 JobLynk | All guides updated for 2026 compliance standards</p>
+    </footer>
+</body>
+</html>
+"@ | Out-File -FilePath "blog-index.html" -Encoding UTF8
