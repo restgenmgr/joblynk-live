@@ -1,0 +1,10 @@
+```powershell id="w9y1me"
+Remove-Item vercel.json.bak
+
+@'
+{
+  "cleanUrls": true,
+  "trailingSlash": false
+}
+'@ | Set-Content vercel.json
+```
