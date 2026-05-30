@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 $blogFolder = ".\blog"
 $blogPage = ".\blog.html"
 
@@ -59,3 +60,5 @@ Set-Content $blogPage $html -Encoding UTF8
 Write-Host ""
 Write-Host "Blog page rebuilt successfully!"
 Write-Host "Articles found:" (Get-ChildItem $blogFolder -Filter *.html).Count
+=======
+>>>>>>> b8ade4d (Auto rebuild blog page)
